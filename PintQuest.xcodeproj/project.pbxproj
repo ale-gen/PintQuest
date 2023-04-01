@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7AAC5BC429D82DED003BAE31 /* PintQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BC329D82DED003BAE31 /* PintQuestApp.swift */; };
+		7AAC5BC629D82DED003BAE31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BC529D82DED003BAE31 /* ContentView.swift */; };
+		7AAC5BC829D82DEE003BAE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAC5BC729D82DEE003BAE31 /* Assets.xcassets */; };
+		7AAC5BCB29D82DEE003BAE31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAC5BCA29D82DEE003BAE31 /* Preview Assets.xcassets */; };
+		7AAC5BCD29D82DEE003BAE31 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BCC29D82DEE003BAE31 /* Persistence.swift */; };
+		7AAC5BD029D82DEE003BAE31 /* PintQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BCE29D82DEE003BAE31 /* PintQuest.xcdatamodeld */; };
+		7AAC5BDA29D82DEE003BAE31 /* PintQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BD929D82DEE003BAE31 /* PintQuestTests.swift */; };
+		7AAC5BE429D82DEE003BAE31 /* PintQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BE329D82DEE003BAE31 /* PintQuestUITests.swift */; };
+		7AAC5BE629D82DEE003BAE31 /* PintQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC5BE529D82DEE003BAE31 /* PintQuestUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AAC5BD629D82DEE003BAE31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AAC5BB829D82DED003BAE31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AAC5BBF29D82DED003BAE31;
+			remoteInfo = PintQuest;
+		};
+		7AAC5BE029D82DEE003BAE31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AAC5BB829D82DED003BAE31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AAC5BBF29D82DED003BAE31;
+			remoteInfo = PintQuest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7AAC5BC029D82DED003BAE31 /* PintQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PintQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAC5BC329D82DED003BAE31 /* PintQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintQuestApp.swift; sourceTree = "<group>"; };
+		7AAC5BC529D82DED003BAE31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7AAC5BC729D82DEE003BAE31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AAC5BCA29D82DEE003BAE31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7AAC5BCC29D82DEE003BAE31 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		7AAC5BCF29D82DEE003BAE31 /* PintQuest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PintQuest.xcdatamodel; sourceTree = "<group>"; };
+		7AAC5BD529D82DEE003BAE31 /* PintQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PintQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAC5BD929D82DEE003BAE31 /* PintQuestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintQuestTests.swift; sourceTree = "<group>"; };
+		7AAC5BDF29D82DEE003BAE31 /* PintQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PintQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAC5BE329D82DEE003BAE31 /* PintQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintQuestUITests.swift; sourceTree = "<group>"; };
+		7AAC5BE529D82DEE003BAE31 /* PintQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AAC5BBD29D82DED003BAE31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC5BD229D82DEE003BAE31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC5BDC29D82DEE003BAE31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7AAC5BB729D82DED003BAE31 = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BC229D82DED003BAE31 /* PintQuest */,
+				7AAC5BD829D82DEE003BAE31 /* PintQuestTests */,
+				7AAC5BE229D82DEE003BAE31 /* PintQuestUITests */,
+				7AAC5BC129D82DED003BAE31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7AAC5BC129D82DED003BAE31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BC029D82DED003BAE31 /* PintQuest.app */,
+				7AAC5BD529D82DEE003BAE31 /* PintQuestTests.xctest */,
+				7AAC5BDF29D82DEE003BAE31 /* PintQuestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AAC5BC229D82DED003BAE31 /* PintQuest */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BC329D82DED003BAE31 /* PintQuestApp.swift */,
+				7AAC5BC529D82DED003BAE31 /* ContentView.swift */,
+				7AAC5BC729D82DEE003BAE31 /* Assets.xcassets */,
+				7AAC5BCC29D82DEE003BAE31 /* Persistence.swift */,
+				7AAC5BCE29D82DEE003BAE31 /* PintQuest.xcdatamodeld */,
+				7AAC5BC929D82DEE003BAE31 /* Preview Content */,
+			);
+			path = PintQuest;
+			sourceTree = "<group>";
+		};
+		7AAC5BC929D82DEE003BAE31 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BCA29D82DEE003BAE31 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7AAC5BD829D82DEE003BAE31 /* PintQuestTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BD929D82DEE003BAE31 /* PintQuestTests.swift */,
+			);
+			path = PintQuestTests;
+			sourceTree = "<group>";
+		};
+		7AAC5BE229D82DEE003BAE31 /* PintQuestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BE329D82DEE003BAE31 /* PintQuestUITests.swift */,
+				7AAC5BE529D82DEE003BAE31 /* PintQuestUITestsLaunchTests.swift */,
+			);
+			path = PintQuestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AAC5BBF29D82DED003BAE31 /* PintQuest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AAC5BE929D82DEE003BAE31 /* Build configuration list for PBXNativeTarget "PintQuest" */;
+			buildPhases = (
+				7AAC5BBC29D82DED003BAE31 /* Sources */,
+				7AAC5BBD29D82DED003BAE31 /* Frameworks */,
+				7AAC5BBE29D82DED003BAE31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PintQuest;
+			productName = PintQuest;
+			productReference = 7AAC5BC029D82DED003BAE31 /* PintQuest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7AAC5BD429D82DEE003BAE31 /* PintQuestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AAC5BEC29D82DEE003BAE31 /* Build configuration list for PBXNativeTarget "PintQuestTests" */;
+			buildPhases = (
+				7AAC5BD129D82DEE003BAE31 /* Sources */,
+				7AAC5BD229D82DEE003BAE31 /* Frameworks */,
+				7AAC5BD329D82DEE003BAE31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AAC5BD729D82DEE003BAE31 /* PBXTargetDependency */,
+			);
+			name = PintQuestTests;
+			productName = PintQuestTests;
+			productReference = 7AAC5BD529D82DEE003BAE31 /* PintQuestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7AAC5BDE29D82DEE003BAE31 /* PintQuestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AAC5BEF29D82DEE003BAE31 /* Build configuration list for PBXNativeTarget "PintQuestUITests" */;
+			buildPhases = (
+				7AAC5BDB29D82DEE003BAE31 /* Sources */,
+				7AAC5BDC29D82DEE003BAE31 /* Frameworks */,
+				7AAC5BDD29D82DEE003BAE31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AAC5BE129D82DEE003BAE31 /* PBXTargetDependency */,
+			);
+			name = PintQuestUITests;
+			productName = PintQuestUITests;
+			productReference = 7AAC5BDF29D82DEE003BAE31 /* PintQuestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AAC5BB829D82DED003BAE31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					7AAC5BBF29D82DED003BAE31 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					7AAC5BD429D82DEE003BAE31 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 7AAC5BBF29D82DED003BAE31;
+					};
+					7AAC5BDE29D82DEE003BAE31 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 7AAC5BBF29D82DED003BAE31;
+					};
+				};
+			};
+			buildConfigurationList = 7AAC5BBB29D82DED003BAE31 /* Build configuration list for PBXProject "PintQuest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7AAC5BB729D82DED003BAE31;
+			productRefGroup = 7AAC5BC129D82DED003BAE31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AAC5BBF29D82DED003BAE31 /* PintQuest */,
+				7AAC5BD429D82DEE003BAE31 /* PintQuestTests */,
+				7AAC5BDE29D82DEE003BAE31 /* PintQuestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AAC5BBE29D82DED003BAE31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAC5BCB29D82DEE003BAE31 /* Preview Assets.xcassets in Resources */,
+				7AAC5BC829D82DEE003BAE31 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC5BD329D82DEE003BAE31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC5BDD29D82DEE003BAE31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AAC5BBC29D82DED003BAE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAC5BCD29D82DEE003BAE31 /* Persistence.swift in Sources */,
+				7AAC5BC629D82DED003BAE31 /* ContentView.swift in Sources */,
+				7AAC5BC429D82DED003BAE31 /* PintQuestApp.swift in Sources */,
+				7AAC5BD029D82DEE003BAE31 /* PintQuest.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC5BD129D82DEE003BAE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAC5BDA29D82DEE003BAE31 /* PintQuestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC5BDB29D82DEE003BAE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAC5BE629D82DEE003BAE31 /* PintQuestUITestsLaunchTests.swift in Sources */,
+				7AAC5BE429D82DEE003BAE31 /* PintQuestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AAC5BD729D82DEE003BAE31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AAC5BBF29D82DED003BAE31 /* PintQuest */;
+			targetProxy = 7AAC5BD629D82DEE003BAE31 /* PBXContainerItemProxy */;
+		};
+		7AAC5BE129D82DEE003BAE31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AAC5BBF29D82DED003BAE31 /* PintQuest */;
+			targetProxy = 7AAC5BE029D82DEE003BAE31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7AAC5BE729D82DEE003BAE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7AAC5BE829D82DEE003BAE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7AAC5BEA29D82DEE003BAE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PintQuest/Preview Content\"";
+				DEVELOPMENT_TEAM = UG4UDFGQLX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleksandra.generowicz.PintQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AAC5BEB29D82DEE003BAE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PintQuest/Preview Content\"";
+				DEVELOPMENT_TEAM = UG4UDFGQLX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleksandra.generowicz.PintQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7AAC5BED29D82DEE003BAE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG4UDFGQLX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleksandra.generowicz.PintQuestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PintQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PintQuest";
+			};
+			name = Debug;
+		};
+		7AAC5BEE29D82DEE003BAE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG4UDFGQLX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleksandra.generowicz.PintQuestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PintQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PintQuest";
+			};
+			name = Release;
+		};
+		7AAC5BF029D82DEE003BAE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG4UDFGQLX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleksandra.generowicz.PintQuestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PintQuest;
+			};
+			name = Debug;
+		};
+		7AAC5BF129D82DEE003BAE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG4UDFGQLX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleksandra.generowicz.PintQuestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PintQuest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AAC5BBB29D82DED003BAE31 /* Build configuration list for PBXProject "PintQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAC5BE729D82DEE003BAE31 /* Debug */,
+				7AAC5BE829D82DEE003BAE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AAC5BE929D82DEE003BAE31 /* Build configuration list for PBXNativeTarget "PintQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAC5BEA29D82DEE003BAE31 /* Debug */,
+				7AAC5BEB29D82DEE003BAE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AAC5BEC29D82DEE003BAE31 /* Build configuration list for PBXNativeTarget "PintQuestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAC5BED29D82DEE003BAE31 /* Debug */,
+				7AAC5BEE29D82DEE003BAE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AAC5BEF29D82DEE003BAE31 /* Build configuration list for PBXNativeTarget "PintQuestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAC5BF029D82DEE003BAE31 /* Debug */,
+				7AAC5BF129D82DEE003BAE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7AAC5BCE29D82DEE003BAE31 /* PintQuest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7AAC5BCF29D82DEE003BAE31 /* PintQuest.xcdatamodel */,
+			);
+			currentVersion = 7AAC5BCF29D82DEE003BAE31 /* PintQuest.xcdatamodel */;
+			path = PintQuest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7AAC5BB829D82DED003BAE31 /* Project object */;
+}
