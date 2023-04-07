@@ -8,23 +8,23 @@
 import Foundation
 import CoreData
 
-struct FavBeersCollectionViewModel: FetchingDataViewModel {
-   
-    func fetchBeerIds() -> [Int64] {
-        let context = PersistenceController.shared.container.viewContext
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-        do {
-            let items = try context.fetch(request)
-            return items.map { $0.id }
-        } catch {
-            print("Error: \(error.localizedDescription)")
-        }
-        return []
+class FavBeersCollectionViewModel: ObservableObject {
+    
+    @Published var beers: [Beer] = []
+    private let memoryClient: CoreDataClient
+    private let apiClient: PunkAPIClient
+    
+    init(memoryClient: CoreDataClient, apiClient: PunkAPIClient) {
+        self.memoryClient = memoryClient
+        self.apiClient = apiClient
     }
     
-    func fetchBeers() -> Task<[Beer], any Error> {
-        let ids = fetchBeerIds()
-        return APIBeersCollectionViewModel(apiClient: PunkAPIClient()).fetchBeersByIds(ids)
+    @MainActor
+    func fetchBeers() {
+        Task {
+            let ids = memoryClient.getData()
+            beers = try await apiClient.fetchBeersByIds(ids)
+        }
     }
     
     func fetchFavBeer(with id: Int64) -> Bool {
@@ -42,26 +42,12 @@ struct FavBeersCollectionViewModel: FetchingDataViewModel {
     }
     
     func saveFavBeer(with id: Int64) {
-        let context = PersistenceController.shared.container.viewContext
-        let newItem = Item(context: context)
-        newItem.id = id
-        do {
-            try context.save()
-        } catch {
-            print("Error during saving beer with id: \(id). Description: \(error.localizedDescription)")
-        }
+        memoryClient.saveData(id)
     }
     
     func deleteFavBeer(with id: Int64) {
-        let context = PersistenceController.shared.container.viewContext
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %d", id)
-        do {
-            guard let itemToDelete = try context.fetch(request).first else { return }
-            context.delete(itemToDelete)
-            try context.save()
-        } catch {
-            print("Error during deleting beer with id: \(id). Description: \(error.localizedDescription)")
-        }
+        guard memoryClient.deleteData(id) else { return }
+        beers = beers.filter { $0.id != id }
     }
+    
 }

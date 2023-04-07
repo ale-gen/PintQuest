@@ -11,9 +11,9 @@ import CachedAsyncImage
 struct BeerDetailView: View {
     
     @Binding var show: Bool
-    let beer: Beer
+    var beer: Beer
     let animation: Namespace.ID
-    let viewModel: FavBeersCollectionViewModel
+    var viewModel: FavBeersCollectionViewModel
     @State private var isFavourite: Bool = false
     
     var body: some View {
@@ -52,7 +52,6 @@ struct BeerDetailView: View {
                     }
                     Spacer()
                     Button {
-                        // Add to favourites
                         if !isFavourite {
                             addFavBeer(id: beer.id)
                         } else {
@@ -113,14 +112,13 @@ struct BeerDetailView: View {
                                 }
                             }
                         }
-                        .padding(.vertical, 20.0)
+                        .padding(.top, 20.0)
                         Spacer()
                     }
                     .padding()
                 }
             }
         }
-        .navigationBarHidden(true)
         .background(
             Rectangle()
                 .fill(.white)
@@ -152,6 +150,7 @@ struct BeerDetailView_Previews: PreviewProvider {
         BeerDetailView(show: .constant(true),
                        beer: Beer.mock,
                        animation: namespace,
-                       viewModel: FavBeersCollectionViewModel())
+                       viewModel: FavBeersCollectionViewModel(memoryClient: CoreDataClient(),
+                                                              apiClient: PunkAPIClient()))
     }
 }
