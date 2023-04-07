@@ -7,22 +7,41 @@
 
 import Foundation
 
-struct APIBeersCollectionViewModel: FetchingDataViewModel {
-    private let punkAPIClient: APIClient
+class APIBeersCollectionViewModel: ObservableObject {
     
-    init(apiClient: APIClient) {
-        self.punkAPIClient = apiClient
+    @Published var beers: [Beer] = []
+    private let client: PunkAPIClient
+    private let beersOnPage: Int
+    private var currentPage: Int
+    private var expectNextPage: Bool
+    
+    init(client: PunkAPIClient) {
+        self.client = client
+        self.beersOnPage = 25
+        self.currentPage = 1
+        self.expectNextPage = true
     }
     
-    func fetchBeers() -> Task<[Beer], any Error> {
+    @MainActor
+    func getBeers() {
         Task {
-            return try await punkAPIClient.fetchBeers()
+            beers = try await client.getData(currentPage)
         }
     }
     
-    func fetchBeersByIds(_ ids: [Int64]) -> Task<[Beer], any Error> {
+    @MainActor
+    func loadMoreContent(_ current: Beer) {
         Task {
-            return try await punkAPIClient.fetchBeersByIds(ids)
+            let thresholdIndex = beers.index(beers.endIndex, offsetBy: -1)
+            guard thresholdIndex == current.id, expectNextPage else { return }
+            do {
+                currentPage += 1
+                let fetchedBeers = try await client.getData(currentPage)
+                expectNextPage = fetchedBeers.count < beersOnPage ? false : true
+                beers.append(contentsOf: fetchedBeers)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
         }
     }
 }

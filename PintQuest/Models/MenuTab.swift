@@ -20,14 +20,5 @@ enum MenuTab: CaseIterable {
         }
     }
     
-    var viewModel: FetchingDataViewModel {
-        switch self {
-        case .browse:
-            return APIBeersCollectionViewModel(apiClient: PunkAPIClient())
-        case .fav:
-            return FavBeersCollectionViewModel()
-        }
-    }
-    
 }
 

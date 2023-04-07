@@ -8,16 +8,25 @@
 import Foundation
 
 enum PunkAPIError: Error {
+    case invalidParameters
     case invalidURL
     case invalidResponse
 }
 
-class PunkAPIClient: APIClient {
+class PunkAPIClient: Client {
+    
+    typealias ClientType = Beer
     
     private let baseURL = "https://api.punkapi.com/v2/"
+    private let itemsOnPage: Int = 25
+    private var page: Int = 1
+    private var expectNextPage: Bool = true
     
-    func fetchBeers() async throws -> [Beer] {
-        guard let url = URL(string: "\(baseURL)beers") else {
+    func getData(_ parameters: Any...) async throws -> [Beer] {
+        guard let page = parameters.first else {
+            throw PunkAPIError.invalidParameters
+        }
+        guard let url = URL(string: "\(baseURL)beers?page=\(page)") else {
             throw PunkAPIError.invalidURL
         }
         
@@ -59,4 +68,7 @@ class PunkAPIClient: APIClient {
         
         return beers
     }
+    
+    func saveData(_ item: Beer) -> Bool { return false }
+    func deleteData(_ item: Beer) -> Bool { return false }
 }
