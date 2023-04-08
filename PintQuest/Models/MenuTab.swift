@@ -14,11 +14,10 @@ enum MenuTab: CaseIterable {
     var name: String {
         switch self {
         case .browse:
-            return "Browse"
+            return Localizable.browseMenuTabTitle.value
         case .fav:
-            return "Favourites"
+            return Localizable.favouriteMenuTabTitle.value
         }
     }
-    
 }
 

@@ -20,14 +20,18 @@ class FavBeersCollectionViewModel: ObservableObject {
     }
     
     @MainActor
-    func fetchBeers() {
+    func getBeers() {
         Task {
             let ids = memoryClient.getData()
-            beers = try await apiClient.fetchBeersByIds(ids)
+            beers = try await apiClient.getDataByIds(ids)
         }
     }
     
-    func fetchFavBeer(with id: Int64) -> Bool {
+    func getBeersByName(_ name: String) {
+        beers = beers.filter { $0.name.lowercased().contains(name.lowercased()) }
+    }
+    
+    func getFavBeer(with id: Int64) -> Bool {
         let context = PersistenceController.shared.container.viewContext
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.predicate = NSPredicate(format: "id == %d", id)

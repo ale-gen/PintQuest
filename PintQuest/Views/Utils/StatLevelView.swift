@@ -46,13 +46,13 @@ struct StatLevelView: View {
                     ForEach(1...5, id: \.self) { index in
                         icon
                             .font(.caption2)
-                            .foregroundColor(value?.scale(from: statKind.range, to: Constants.range) ?? 0.0 >= Double(index) ? color : .gray.opacity(0.5))
+                            .foregroundColor(value?.scale(from: statKind.range, to: Constants.range) ?? .zero >= Double(index) ? color : .gray.opacity(0.5))
                     }
                 }
             } else {
                 HStack(spacing: .zero) {
-                    Text(value ?? 0.0, format: .number)
-                    Text("%")
+                    Text(value ?? .zero, format: .number)
+                    Text(String.percentage)
                 }
                 .font(.system(size: 12.0))
                 .fontWeight(.semibold)

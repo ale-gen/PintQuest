@@ -9,6 +9,11 @@ import Foundation
 
 class APIBeersCollectionViewModel: ObservableObject {
     
+    private enum Constants {
+        static let initialPage: Int = 1
+        static let maxPageSize: Int = 25
+    }
+    
     @Published var beers: [Beer] = []
     private let client: PunkAPIClient
     private let beersOnPage: Int
@@ -17,8 +22,8 @@ class APIBeersCollectionViewModel: ObservableObject {
     
     init(client: PunkAPIClient) {
         self.client = client
-        self.beersOnPage = 25
-        self.currentPage = 1
+        self.beersOnPage = Constants.maxPageSize
+        self.currentPage = Constants.initialPage
         self.expectNextPage = true
     }
     
@@ -26,6 +31,13 @@ class APIBeersCollectionViewModel: ObservableObject {
     func getBeers() {
         Task {
             beers = try await client.getData(currentPage)
+        }
+    }
+    
+    @MainActor
+    func getBeersByName(_ name: String) {
+        Task {
+            beers = try await client.getDataByName(name, currentPage)
         }
     }
     
@@ -43,5 +55,9 @@ class APIBeersCollectionViewModel: ObservableObject {
                 print("Error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func resetPagination() {
+        currentPage = Constants.initialPage
     }
 }

@@ -15,22 +15,22 @@ enum BeerVitalStats {
     var fullName: String {
         switch self {
         case .abv:
-            return "Alcohol by Volume in Beer"
+            return Localizable.abvFullnameText.value
         case .ibu:
-            return "International Bittering Units"
+            return Localizable.ibuFullnameText.value
         case .ebc:
-            return "Standard of Color Measurement"
+            return Localizable.ebcFullnameText.value
         }
     }
     
     var shortName: String {
         switch self {
         case .abv:
-            return "Alcohol"
+            return Localizable.abvShortnameText.value
         case .ibu:
-            return "Bitterness"
+            return Localizable.ibuShortnameText.value
         case .ebc:
-            return "Color"
+            return Localizable.ebcShortnameText.value
         }
     }
     
@@ -50,9 +50,9 @@ enum BeerVitalStats {
         case .abv:
             return nil
         case .ibu:
-            return Image(systemName: "bolt.fill")
+            return Icons.boltFill.value
         case .ebc:
-            return Image(systemName: "circle.fill")
+            return Icons.circleFill.value
         }
     }
     

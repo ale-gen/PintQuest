@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A59275929E20EB500D5D170 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A59275829E20EB500D5D170 /* Localizable.strings */; };
+		7A59275B29E20EC900D5D170 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59275A29E20EC900D5D170 /* Localizable.swift */; };
+		7A59275D29E2106900D5D170 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59275C29E2106900D5D170 /* String+Extension.swift */; };
+		7A59275F29E2134600D5D170 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59275E29E2134600D5D170 /* Icons.swift */; };
 		7A614E1B29DF820900B66582 /* FavBeersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A614E1A29DF820900B66582 /* FavBeersCollectionView.swift */; };
 		7A661C9829DF648A000F5D0B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A661C9729DF648A000F5D0B /* HomeView.swift */; };
 		7A661C9A29DF6AC1000F5D0B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A661C9929DF6AC1000F5D0B /* Client.swift */; };
@@ -53,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A59275829E20EB500D5D170 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7A59275A29E20EC900D5D170 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		7A59275C29E2106900D5D170 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7A59275E29E2134600D5D170 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		7A614E1A29DF820900B66582 /* FavBeersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavBeersCollectionView.swift; sourceTree = "<group>"; };
 		7A661C9729DF648A000F5D0B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7A661C9929DF6AC1000F5D0B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -109,6 +117,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A59275729E20E9B00D5D170 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BC729D82DEE003BAE31 /* Assets.xcassets */,
+				7A59275829E20EB500D5D170 /* Localizable.strings */,
+				7A59275A29E20EC900D5D170 /* Localizable.swift */,
+				7A59275E29E2134600D5D170 /* Icons.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7AAC5BB729D82DED003BAE31 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +151,7 @@
 		7AAC5BC229D82DED003BAE31 /* PintQuest */ = {
 			isa = PBXGroup;
 			children = (
+				7A59275729E20E9B00D5D170 /* Resources */,
 				7AAC5C0C29D8324F003BAE31 /* ViewModels */,
 				7AAC5C0429D83018003BAE31 /* Extensions */,
 				7AAC5BFF29D82FB8003BAE31 /* Views */,
@@ -139,7 +159,6 @@
 				7AAC5BF229D82E99003BAE31 /* Networking */,
 				7AAC5BC329D82DED003BAE31 /* PintQuestApp.swift */,
 				7AAC5BC529D82DED003BAE31 /* ContentView.swift */,
-				7AAC5BC729D82DEE003BAE31 /* Assets.xcassets */,
 				7AAC5BCC29D82DEE003BAE31 /* Persistence.swift */,
 				7AAC5BCE29D82DEE003BAE31 /* PintQuest.xcdatamodeld */,
 				7AAC5BC929D82DEE003BAE31 /* Preview Content */,
@@ -208,6 +227,7 @@
 			children = (
 				7AAC5C0529D83023003BAE31 /* Color+Extension.swift */,
 				7AAC5C0729D8304E003BAE31 /* Double+Extension.swift */,
+				7A59275C29E2106900D5D170 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AAC5BCB29D82DEE003BAE31 /* Preview Assets.xcassets in Resources */,
+				7A59275929E20EB500D5D170 /* Localizable.strings in Resources */,
 				7AAC5BC829D82DEE003BAE31 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AAC5BCD29D82DEE003BAE31 /* Persistence.swift in Sources */,
+				7A59275B29E20EC900D5D170 /* Localizable.swift in Sources */,
 				7AAC5BF629D82F38003BAE31 /* PunkAPIClient.swift in Sources */,
 				7AAC5BC629D82DED003BAE31 /* ContentView.swift in Sources */,
 				7AAC5BC429D82DED003BAE31 /* PintQuestApp.swift in Sources */,
@@ -410,8 +432,10 @@
 				7AAC5C0629D83023003BAE31 /* Color+Extension.swift in Sources */,
 				7AAC5BF829D82F55003BAE31 /* Beer.swift in Sources */,
 				7AAC5C0E29D83271003BAE31 /* APIBeersCollectionViewModel.swift in Sources */,
+				7A59275D29E2106900D5D170 /* String+Extension.swift in Sources */,
 				7A661C9829DF648A000F5D0B /* HomeView.swift in Sources */,
 				7AAC5C0329D82FF0003BAE31 /* StatLevelView.swift in Sources */,
+				7A59275F29E2134600D5D170 /* Icons.swift in Sources */,
 				7A614E1B29DF820900B66582 /* FavBeersCollectionView.swift in Sources */,
 				7AAC5C1A29D83912003BAE31 /* APIBeersCollectionView.swift in Sources */,
 				7A661C9C29DF6BDF000F5D0B /* CoreDataClient.swift in Sources */,

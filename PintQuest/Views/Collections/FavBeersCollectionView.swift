@@ -34,7 +34,7 @@ struct FavBeersCollectionView: View {
             .padding(.vertical, 20.0)
         }
         .onAppear {
-            viewModel.fetchBeers()
+            viewModel.getBeers()
         }
     }
 }

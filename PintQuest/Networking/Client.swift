@@ -20,3 +20,14 @@ protocol Client {
     func saveData(_ item: ClientType) -> Bool
     func deleteData(_ item: ClientType) -> Bool
 }
+
+enum ClientEndpoint {
+    case punkApi
+    
+    var baseUrl: String {
+        switch self {
+        case .punkApi:
+            return "https://api.punkapi.com/v2/"
+        }
+    }
+}
