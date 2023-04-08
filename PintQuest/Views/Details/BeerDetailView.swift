@@ -23,7 +23,7 @@ struct BeerDetailView: View {
                     .fill(Color.beige)
                     .offset(x: -10.0)
                 if show {
-                    CachedAsyncImage(url: URL(string: beer.imageUrl ?? "")) { image in
+                    CachedAsyncImage(url: URL(string: beer.imageUrl ?? .empty)) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -45,7 +45,7 @@ struct BeerDetailView: View {
                             show.toggle()
                         }
                     } label: {
-                        Image(systemName: "chevron.left")
+                        Icons.leftArrow.value
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
@@ -59,7 +59,7 @@ struct BeerDetailView: View {
                         }
                         isFavourite.toggle()
                     } label: {
-                        Image(systemName: isFavourite ? "heart.fill" : "heart")
+                        Image(systemName: isFavourite ? Icons.heartFill.name : Icons.heart.name)
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
@@ -71,7 +71,7 @@ struct BeerDetailView: View {
                 HStack {
                     Spacer(minLength: UIScreen.main.bounds.midX / 2)
                     VStack(alignment: .leading, spacing: 10.0) {
-                        Text(beer.tagline.replacingOccurrences(of: ".", with: ""))
+                        Text(beer.tagline.replacingOccurrences(of: String.dot, with: String.empty))
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .opacity(0.8)
@@ -81,7 +81,7 @@ struct BeerDetailView: View {
                         ScrollView(showsIndicators: false) {
                             VStack(alignment: .leading, spacing: 10.0) {
                                 Group {
-                                    Text("Description: ")
+                                    Text(Localizable.descriptionSectionTitleBeerDetailView.value)
                                         .fontWeight(.semibold)
                                         .underline()
                                     Text(beer.description)
@@ -91,7 +91,7 @@ struct BeerDetailView: View {
                                 .padding(.trailing, 10.0)
                                 
                                 Group {
-                                    Text("Parameters: ")
+                                    Text(Localizable.parametersSectionTitleBeerDetailView.value)
                                         .fontWeight(.semibold)
                                         .underline()
                                     StatLevelView(statKind: .abv, value: beer.abv)
@@ -102,7 +102,7 @@ struct BeerDetailView: View {
                                 
                                 if let brewersTips = beer.brewersTips {
                                     Group {
-                                        Text("Brewer tips: ")
+                                        Text(Localizable.brewerTipsSectionTitleBeerDetailView.value)
                                             .fontWeight(.semibold)
                                             .underline()
                                         Text(brewersTips)
@@ -138,7 +138,7 @@ struct BeerDetailView: View {
     }
     
     private func isMarkedAsFav(id: Int) -> Bool {
-        return viewModel.fetchFavBeer(with: Int64(id))
+        return viewModel.getFavBeer(with: Int64(id))
     }
     
 }

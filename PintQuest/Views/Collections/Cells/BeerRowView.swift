@@ -45,14 +45,14 @@ struct BeerRowView: View {
                     
                     HStack {
                         HStack(spacing: 1.0) {
-                            Text("Brewed from:")
+                            Text(Localizable.brewedFromTitleBeerCard.value)
                             Text(beer.firstBrewed)
                         }
                         .font(.subheadline)
                         .fontWeight(.light)
                         .foregroundColor(.secondary)
                         Spacer()
-                        Image(systemName: "chevron.right")
+                        Icons.rightArrow.value
                             .font(.caption)
                             .foregroundColor(.gray)
                             .padding(.trailing, 10.0)
@@ -69,7 +69,7 @@ struct BeerRowView: View {
                 
                 ZStack {
                     if !shouldHideImage {
-                        CachedAsyncImage(url: URL(string: beer.imageUrl ?? "")) { image in
+                        CachedAsyncImage(url: URL(string: beer.imageUrl ?? .empty)) { image in
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)

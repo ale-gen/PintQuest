@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var selectedTab: MenuTab = .browse
     @State private var showDetailView: Bool = false
     @State private var selectedBeer: Beer?
+    @State private var searchName: String = String.empty
     private var apiViewModel = APIBeersCollectionViewModel(client: Clients.punkApiClient)
     private var memoryViewModel = FavBeersCollectionViewModel(memoryClient: Clients.coreDataClient, apiClient: Clients.punkApiClient)
     
@@ -46,12 +47,23 @@ struct HomeView: View {
                                    animation: animation,
                                    viewModel: memoryViewModel)
                     .transition(.identity)
-                    .navigationTitle("")
+                    .navigationTitle(String.empty)
                     .toolbar(.hidden, for: .navigationBar)
                 }
             }
-            .navigationTitle("Beers")
+            .searchable(text: $searchName, prompt: Localizable.beerSearchBarPrompt.value)
+            .navigationTitle(Localizable.homeNavigationBarTitle.value)
             .transition(.opacity)
+            .onChange(of: searchName) { newValue in
+                apiViewModel.resetPagination()
+                guard newValue.isEmpty else {
+                    memoryViewModel.getBeersByName(newValue)
+                    apiViewModel.getBeersByName(newValue)
+                    return
+                }
+                memoryViewModel.getBeers()
+                apiViewModel.getBeers()
+            }
         }
     }
     
