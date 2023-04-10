@@ -10,9 +10,31 @@ import CachedAsyncImage
 
 struct BeerRowView: View {
     
+    private enum Constants {
+        enum Image {
+            static let cornerRadius: CGFloat = 10.0
+            static let backgroundColor: Color = .beige
+            static let shadowRadius: CGFloat = 10.0
+            static let padding: CGFloat = 2.0
+        }
+        enum Background {
+            static let cornerRadius: CGFloat = 10.0
+            static let color: Color = .white
+            static let shadowColor: Color = .black.opacity(0.08)
+            static let shadowRadius: CGFloat = 8.0
+            static let xShadow: CGFloat = 5.0
+            static let yShadow: CGFloat = 5.0
+        }
+        enum Subtitle {
+            static let font: Font = .subheadline
+            static let fontWeight: Font.Weight = .light
+            static let color: Color = .secondary
+        }
+    }
+    
     let beer: Beer
-    var animation: Namespace.ID
-    var shouldHideImage: Bool
+    let animation: Namespace.ID
+    let shouldHideImage: Bool
     
     var body: some View {
         GeometryReader { geo in
@@ -24,14 +46,12 @@ struct BeerRowView: View {
                         Text(beer.name)
                             .font(.title3)
                             .fontWeight(.semibold)
-                        
                         Spacer()
-                        
                     }
                     
                     Text(beer.tagline)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .font(Constants.Subtitle.font)
+                        .foregroundColor(Constants.Subtitle.color)
                     
                     HStack {
                         StatLevelView(statKind: .ibu, value: beer.ibu)
@@ -48,9 +68,9 @@ struct BeerRowView: View {
                             Text(Localizable.brewedFromTitleBeerCard.value)
                             Text(beer.firstBrewed)
                         }
-                        .font(.subheadline)
-                        .fontWeight(.light)
-                        .foregroundColor(.secondary)
+                        .font(Constants.Subtitle.font)
+                        .fontWeight(Constants.Subtitle.fontWeight)
+                        .foregroundColor(Constants.Subtitle.color)
                         Spacer()
                         Icons.rightArrow.value
                             .font(.caption)
@@ -61,31 +81,15 @@ struct BeerRowView: View {
                 .padding(20.0)
                 .frame(width: 2 * size.width / 3, height: 0.8 * size.height, alignment: .leading)
                 .background {
-                    RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .fill(.white)
-                        .shadow(color: .black.opacity(0.08), radius: 8.0, x: 5, y: -5)
-                        .shadow(color: .black.opacity(0.08), radius: 8.0, x: -5, y: 5)
+                    RoundedRectangle(cornerRadius: Constants.Background.cornerRadius, style: .continuous)
+                        .fill(Constants.Background.color)
+                        .shadow(color: Constants.Background.shadowColor, radius: Constants.Background.shadowRadius, x: Constants.Background.xShadow, y: -Constants.Background.yShadow)
+                        .shadow(color: Constants.Background.shadowColor, radius: Constants.Background.shadowRadius, x: -Constants.Background.xShadow, y: Constants.Background.yShadow)
                 }
                 
                 ZStack {
                     if !shouldHideImage {
-                        CachedAsyncImage(url: URL(string: beer.imageUrl ?? .empty)) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: size.width / 3, height: size.height * 0.8)
-                                .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
-                                .matchedGeometryEffect(id: beer.id, in: animation)
-                                .padding(2.0)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 10.0)
-                                        .fill(Color.beige)
-                                        .shadow(radius: 10.0)
-                                        .frame(width: size.width / 3, height: size.height)
-                                }
-                        } placeholder: {
-                            ProgressView()
-                        }
+                        image(width: size.width / 3, height: size.height)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -93,6 +97,26 @@ struct BeerRowView: View {
             .frame(width: size.width)
         }
         .frame(minHeight: 220.0)
+    }
+    
+    private func image(width: CGFloat, height: CGFloat) -> some View {
+        CachedAsyncImage(url: URL(string: beer.imageUrl ?? .empty)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: width, height: 0.8 * height)
+                .clipShape(RoundedRectangle(cornerRadius: Constants.Image.cornerRadius, style: .continuous))
+                .matchedGeometryEffect(id: beer.id, in: animation)
+                .padding(Constants.Image.padding)
+                .background {
+                    RoundedRectangle(cornerRadius: Constants.Image.cornerRadius)
+                        .fill(Constants.Image.backgroundColor)
+                        .shadow(radius: Constants.Image.shadowRadius)
+                        .frame(width: width, height: height)
+                }
+        } placeholder: {
+            ProgressView()
+        }
     }
 }
 

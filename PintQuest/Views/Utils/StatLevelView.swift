@@ -11,7 +11,13 @@ struct StatLevelView: View {
     
     private enum Constants {
         static let defaultColor: Color = .darkBrown
+        static let placeholderColor: Color = .gray.opacity(0.5)
         static let range: ClosedRange<Double> = 1...5
+        static let spacing: CGFloat = 5.0
+        enum Text {
+            static let font: Font = .system(size: 12.0)
+            static let fontWeight: Font.Weight = .semibold
+        }
     }
     
     var statKind: BeerVitalStats
@@ -26,7 +32,7 @@ struct StatLevelView: View {
                 result
             }
         } else {
-            VStack(alignment: .leading, spacing: 5.0) {
+            VStack(alignment: .leading, spacing: Constants.spacing) {
                 label
                 result
             }
@@ -42,11 +48,11 @@ struct StatLevelView: View {
     private var result: some View {
         ZStack {
             if let icon = statKind.icon {
-                HStack(spacing: 4.0) {
+                HStack(spacing: Constants.spacing) {
                     ForEach(1...5, id: \.self) { index in
                         icon
                             .font(.caption2)
-                            .foregroundColor(value?.scale(from: statKind.range, to: Constants.range) ?? .zero >= Double(index) ? color : .gray.opacity(0.5))
+                            .foregroundColor(value?.scale(from: statKind.range, to: Constants.range) ?? .zero >= Double(index) ? color : Constants.placeholderColor)
                     }
                 }
             } else {
@@ -54,8 +60,8 @@ struct StatLevelView: View {
                     Text(value ?? .zero, format: .number)
                     Text(String.percentage)
                 }
-                .font(.system(size: 12.0))
-                .fontWeight(.semibold)
+                .font(Constants.Text.font)
+                .fontWeight(Constants.Text.fontWeight)
                 .foregroundColor(color)
             }
         }

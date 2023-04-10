@@ -128,6 +128,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7A59276129E21ACB00D5D170 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				7AAC5BCE29D82DEE003BAE31 /* PintQuest.xcdatamodeld */,
+				7AAC5BCC29D82DEE003BAE31 /* Persistence.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		7AAC5BB729D82DED003BAE31 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +160,7 @@
 		7AAC5BC229D82DED003BAE31 /* PintQuest */ = {
 			isa = PBXGroup;
 			children = (
+				7A59276129E21ACB00D5D170 /* Storage */,
 				7A59275729E20E9B00D5D170 /* Resources */,
 				7AAC5C0C29D8324F003BAE31 /* ViewModels */,
 				7AAC5C0429D83018003BAE31 /* Extensions */,
@@ -158,9 +168,6 @@
 				7AAC5BF929D82F69003BAE31 /* Models */,
 				7AAC5BF229D82E99003BAE31 /* Networking */,
 				7AAC5BC329D82DED003BAE31 /* PintQuestApp.swift */,
-				7AAC5BC529D82DED003BAE31 /* ContentView.swift */,
-				7AAC5BCC29D82DEE003BAE31 /* Persistence.swift */,
-				7AAC5BCE29D82DEE003BAE31 /* PintQuest.xcdatamodeld */,
 				7AAC5BC929D82DEE003BAE31 /* Preview Content */,
 			);
 			path = PintQuest;
@@ -254,6 +261,7 @@
 		7AFCD87929E0BA21006319F9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7AAC5BC529D82DED003BAE31 /* ContentView.swift */,
 				7A661C9729DF648A000F5D0B /* HomeView.swift */,
 			);
 			path = Main;

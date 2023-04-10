@@ -9,10 +9,20 @@ import SwiftUI
 
 struct FavBeersCollectionView: View {
     
+    private enum Constants {
+        static let horizontalPadding: CGFloat = 15.0
+        static let verticalPadding: CGFloat = 20.0
+        enum Animation {
+            static let response: CGFloat = 0.9
+            static let dampingFraction: CGFloat = 0.9
+            static let blendDuration: CGFloat = 0.1
+        }
+    }
+    
+    let animation: Namespace.ID
     @ObservedObject var viewModel: FavBeersCollectionViewModel
     @Binding var showDetailView: Bool
     @Binding var selectedBeer: Beer?
-    var animation: Namespace.ID
     
     var body: some View {
         ScrollView {
@@ -23,15 +33,15 @@ struct FavBeersCollectionView: View {
                                 shouldHideImage: showDetailView &&
                                 selectedBeer?.id == beer.id)
                     .onTapGesture {
-                        withAnimation(.interactiveSpring(response: 0.9, dampingFraction: 0.9, blendDuration: 0.1)) {
+                        withAnimation(.interactiveSpring(response: Constants.Animation.response, dampingFraction: Constants.Animation.dampingFraction, blendDuration: Constants.Animation.blendDuration)) {
                             selectedBeer = beer
                             showDetailView = true
                         }
                     }
                 }
             }
-            .padding(.horizontal, 15.0)
-            .padding(.vertical, 20.0)
+            .padding(.horizontal, Constants.horizontalPadding)
+            .padding(.vertical, Constants.verticalPadding)
         }
         .onAppear {
             viewModel.getBeers()
@@ -43,6 +53,6 @@ struct FavBeersCollectionView_Previews: PreviewProvider {
     @Namespace static var animation
     
     static var previews: some View {
-        FavBeersCollectionView(viewModel: FavBeersCollectionViewModel(memoryClient: Clients.coreDataClient, apiClient: Clients.punkApiClient), showDetailView: .constant(false), selectedBeer: .constant(nil), animation: animation)
+        FavBeersCollectionView(animation: animation, viewModel: FavBeersCollectionViewModel(memoryClient: Clients.coreDataClient, apiClient: Clients.punkApiClient), showDetailView: .constant(false), selectedBeer: .constant(nil))
     }
 }
