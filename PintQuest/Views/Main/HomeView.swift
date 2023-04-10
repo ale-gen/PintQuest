@@ -9,6 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     
+    private enum Constants {
+        static let spacing: CGFloat = 15.0
+        static let yOffset: CGFloat = 2.0
+    }
+    
     @Namespace var animation
     @State private var selectedTab: MenuTab = .browse
     @State private var showDetailView: Bool = false
@@ -20,7 +25,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack(spacing: 15.0) {
+                HStack(spacing: Constants.spacing) {
                     ForEach(MenuTab.allCases, id: \.self) { tab in
                         Button {
                             withAnimation {
@@ -31,21 +36,22 @@ struct HomeView: View {
                                 .foregroundColor(selectedTab == tab ? .black : .gray)
                                 .font(selectedTab == tab ? .title3 : .callout)
                                 .fontWeight(selectedTab == tab ? .bold : .semibold)
-                                .padding(.leading, selectedTab == tab ? 0.0 : 15.0)
-                                .offset(y: selectedTab == tab ? 0.0 : 2.0)
+                                .padding(.leading, selectedTab == tab ? .zero : Constants.spacing)
+                                .offset(y: selectedTab == tab ? .zero : Constants.yOffset)
                         }
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(15.0)
+                .padding(Constants.spacing)
                 
-                beerCollectionView            }
+                beerCollectionView
+            }
             .overlay {
                 if let selectedBeer, showDetailView {
-                    BeerDetailView(show: $showDetailView,
+                    BeerDetailView(animation: animation,
                                    beer: selectedBeer,
-                                   animation: animation,
-                                   viewModel: memoryViewModel)
+                                   viewModel: memoryViewModel,
+                                   show: $showDetailView)
                     .transition(.identity)
                     .navigationTitle(String.empty)
                     .toolbar(.hidden, for: .navigationBar)
@@ -70,9 +76,9 @@ struct HomeView: View {
     private var beerCollectionView: some View {
         switch selectedTab {
         case .browse:
-            return AnyView(APIBeersCollectionView(viewModel: apiViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer, animation: animation))
+            return AnyView(APIBeersCollectionView(animation: animation, viewModel: apiViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer))
         case .fav:
-            return AnyView(FavBeersCollectionView(viewModel: memoryViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer, animation: animation))
+            return AnyView(FavBeersCollectionView(animation: animation, viewModel: memoryViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer))
         }
     }
 }
