@@ -12,6 +12,8 @@ struct HomeView: View {
     private enum Constants {
         static let spacing: CGFloat = 15.0
         static let yOffset: CGFloat = 2.0
+        static let verticalPadding: CGFloat = 15.0
+        static let horizontalPadding: CGFloat = 20.0
     }
     
     @Namespace var animation
@@ -42,7 +44,8 @@ struct HomeView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(Constants.spacing)
+                .padding(.vertical, Constants.verticalPadding)
+                .padding(.horizontal, Constants.horizontalPadding)
                 
                 beerCollectionView
             }
@@ -78,7 +81,7 @@ struct HomeView: View {
         case .browse:
             return AnyView(APIBeersCollectionView(animation: animation, viewModel: apiViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer))
         case .fav:
-            return AnyView(FavBeersCollectionView(animation: animation, viewModel: memoryViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer))
+            return AnyView(FavBeersCollectionView(animation: animation, viewModel: memoryViewModel, showDetailView: $showDetailView, selectedBeer: $selectedBeer, selectedTab: $selectedTab))
         }
     }
 }

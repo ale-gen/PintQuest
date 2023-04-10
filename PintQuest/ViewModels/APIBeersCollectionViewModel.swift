@@ -15,6 +15,7 @@ class APIBeersCollectionViewModel: ObservableObject {
     }
     
     @Published var beers: [Beer] = []
+    private(set) var loaded: Bool
     private let client: PunkAPIClient
     private let beersOnPage: Int
     private var currentPage: Int
@@ -25,12 +26,14 @@ class APIBeersCollectionViewModel: ObservableObject {
         self.beersOnPage = Constants.maxPageSize
         self.currentPage = Constants.initialPage
         self.expectNextPage = true
+        self.loaded = false
     }
     
     @MainActor
     func getBeers() {
         Task {
             beers = try await client.getData(currentPage)
+            loaded = true
         }
     }
     

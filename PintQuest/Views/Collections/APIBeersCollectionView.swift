@@ -17,6 +17,10 @@ struct APIBeersCollectionView: View {
             static let dampingFraction: CGFloat = 0.9
             static let blendDuration: CGFloat = 0.1
         }
+        enum EmptyState {
+            static let yOffset: CGFloat = -50.0
+            static let image: Image = Image("Beers")
+        }
     }
     
     let animation: Namespace.ID
@@ -25,26 +29,33 @@ struct APIBeersCollectionView: View {
     @Binding var selectedBeer: Beer?
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.beers) { beer in
-                    BeerRowView(beer: beer,
-                                animation: animation,
-                                shouldHideImage: showDetailView &&
-                                selectedBeer?.id == beer.id)
-                    .onAppear {
-                        viewModel.loadMoreContent(beer)
-                    }
-                    .onTapGesture {
-                        withAnimation(.interactiveSpring(response: Constants.Animation.response, dampingFraction: Constants.Animation.dampingFraction, blendDuration: Constants.Animation.blendDuration)) {
-                            selectedBeer = beer
-                            showDetailView = true
+        Group {
+            if viewModel.loaded && viewModel.beers.isEmpty {
+                EmptyStateView(model: EmptyState(image: Constants.EmptyState.image, title: Localizable.emptyStateTitleBrowseBeersCollection.value, buttonTitle: Localizable.emptyStateButtonTitleBrowseBeersCollection.value))
+                    .offset(y: Constants.EmptyState.yOffset)
+            } else {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.beers) { beer in
+                            BeerRowView(beer: beer,
+                                        animation: animation,
+                                        shouldHideImage: showDetailView &&
+                                        selectedBeer?.id == beer.id)
+                            .onAppear {
+                                viewModel.loadMoreContent(beer)
+                            }
+                            .onTapGesture {
+                                withAnimation(.interactiveSpring(response: Constants.Animation.response, dampingFraction: Constants.Animation.dampingFraction, blendDuration: Constants.Animation.blendDuration)) {
+                                    selectedBeer = beer
+                                    showDetailView = true
+                                }
+                            }
                         }
                     }
+                    .padding(.horizontal, Constants.horizontalPadding)
+                    .padding(.vertical, Constants.verticalPadding)
                 }
             }
-            .padding(.horizontal, Constants.horizontalPadding)
-            .padding(.vertical, Constants.verticalPadding)
         }
         .onAppear {
             viewModel.getBeers()

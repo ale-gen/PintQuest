@@ -11,19 +11,22 @@ import CoreData
 class FavBeersCollectionViewModel: ObservableObject {
     
     @Published var beers: [Beer] = []
+    private(set) var loaded: Bool
     private let memoryClient: CoreDataClient
     private let apiClient: PunkAPIClient
     
     init(memoryClient: CoreDataClient, apiClient: PunkAPIClient) {
         self.memoryClient = memoryClient
         self.apiClient = apiClient
+        self.loaded = false
     }
     
     @MainActor
     func getBeers() {
-        Task {
+        Task { [weak self] in
             let ids = memoryClient.getData()
             beers = try await apiClient.getDataByIds(ids)
+            self?.loaded = true
         }
     }
     
