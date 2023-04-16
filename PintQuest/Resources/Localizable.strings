@@ -32,3 +32,11 @@
 // MARK: Beer card
 "brewed.from.title.beer.card" = "Brewed from:";
 
+// MARK: Searched beers collection
+"empty.state.title.browse.beers.collection" = "No searched beers.";
+"empty.state.button.title.browse.beers.collection" = "";
+
+// MARK: Fav beers collection
+"empty.state.title.fav.beers.collection" = "No fav beers.";
+"empty.state.button.title.fav.beers.collection" = "Tap to search one";
+

@@ -46,4 +46,13 @@ enum Localizable: String, Translation {
     
     // MARK: Beer card
     case brewedFromTitleBeerCard = "brewed.from.title.beer.card"
+    
+    // MARK: Searched beers collection
+    case emptyStateTitleBrowseBeersCollection = "empty.state.title.browse.beers.collection"
+    case emptyStateButtonTitleBrowseBeersCollection = "empty.state.button.title.browse.beers.collection"
+    
+    // MARK: Fav beers collection
+    case emptyStateTitleFavBeersCollection = "empty.state.title.fav.beers.collection"
+    case emptyStateButtonTitleFavBeersCollection = "empty.state.button.title.fav.beers.collection"
+
 }
